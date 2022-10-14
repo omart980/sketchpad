@@ -1,0 +1,13 @@
+/* (A) CONTAINER */
+#grid-row {
+    /* (A1) GRID LAYOUT */
+    display: grid;
+    display: flex;
+  }
+
+div div {
+    width: 100px;
+    height: 100px;
+    outline: 1px solid;
+}
+
