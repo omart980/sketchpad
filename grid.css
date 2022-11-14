@@ -9,7 +9,7 @@ body {
 }
 
 header h1 {
-    font-family: 'Rampart One', cursive; /*API?*/
+    font-family: 'Rubik Bubbles', cursive;
     font-size: 35px;
     text-decoration: underline;
     text-align: center;
@@ -18,7 +18,7 @@ header h1 {
     color: #941010;
 }
 
-.buttons-container h3 {
+.buttons h3 {
     color: #941010;
 }
 
@@ -42,12 +42,12 @@ header h1 {
     border: #DCDCDC solid 1px;
 }
 
-.buttons-container {
+.buttons {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly; /*?*/
     margin-right: 30px;
-    font-family: 'Rampart One', cursive;
+    font-family: 'Rubik Bubbles', cursive;
 }
 
 button {
@@ -63,13 +63,12 @@ button:hover {
     cursor: pointer;
 }
 
-/*added*/
-#reset-button{
+#reset{
     margin-top: 20px;
-    background-color: 	#ffdab9;
+    background-color: #ffdab9;
 }
 
-#reset-button:hover {
+#reset:hover {
     background-color: #C0C0C0;
     cursor: pointer; /*type of cursor of hoov.*/
 }

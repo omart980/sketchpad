@@ -28,13 +28,11 @@ const createDivs = (num, dimensions) => {
     }
 }
 
-// TODO: Changing instances of a word extensionz!!!!!!!!!!!!!!!!
 
 createSketchContainer();
 createDivs(16, 31); //these affect each other
 
-// Make the divs permanently change color when hovered.
-
+// Divs will change color when hovered
 const gridDivs = document.querySelectorAll(".grid-divs");
 
 const colorChange = () => {
@@ -64,11 +62,9 @@ for (let i = 0; i < gridDivs.length; i++) {
 }
 
 
-// Choose grid size button
+// Size Seletion: 16 x 16 size
 
-// 16 * 16 sketch size
-
-const grid16 = document.querySelector("#grid-16");
+const grid16 = document.querySelector("#grid_16");
 
 grid16.addEventListener("click", () => {
     while (sketchContainer.firstChild) { //a boolean?
@@ -87,9 +83,9 @@ grid16.addEventListener("click", () => {
     }
 });
 
-// 32 * 32 sketch size
+// Size Seletion: 32 x 32 size
 
-const grid32 = document.querySelector("#grid-32");
+const grid32 = document.querySelector("#grid_32");
 
 grid32.addEventListener("click", () => {
     while (sketchContainer.firstChild) {
@@ -104,9 +100,9 @@ grid32.addEventListener("click", () => {
     }
 });
 
-// 64 * 64 sketch size
+// Size Seletion: 64 x 64 size
 
-const grid64 = document.querySelector("#grid-64");
+const grid64 = document.querySelector("#grid_64");
 
 grid64.addEventListener("click", () => {
     while (sketchContainer.firstChild) {
@@ -121,8 +117,7 @@ grid64.addEventListener("click", () => {
     }
 });
 
-// Reset button - turn all grids white
-
+// Reset(white) function 
 const resetButton = document.querySelector("#reset");
 
 resetButton.addEventListener("click", () => {
