@@ -1,6 +1,6 @@
 // Function  that creates a container and X amount of divs.
 
-const mainContainer = document.querySelector("#info-container");
+const infoContainer = document.querySelector("#info-container");
 // https://www.youtube.com/watch?v=3oOKAJTD2F8
 // S: let's you find/return html elements, spec.
 const sketchContainer = document.createElement("section");
@@ -14,49 +14,53 @@ const sketchContainer = document.createElement("section");
 const createSketchContainer = () => { //Arrow func.
     sketchContainer.setAttribute("id", "sketch-container");
     // setting the value and a name
-    mainContainer.appendChild(sketchContainer);
+    infoContainer.appendChild(sketchContainer);
 }
 
 const createDivs = (num, dimensions) => {
     for (let i = 0; i < num * num; i++) {
-    const divs = document.createElement("div");
-    divs.classList.add("grid-divs");
-    divs.style.width = `${dimensions}px`; 
-    divs.style.height = `${dimensions}px`;
-    sketchContainer.appendChild(divs);
+        const divs = document.createElement("div");
+        divs.classList.add("grid-divs"); //assume you can create this
+        divs.style.width = `${dimensions}px`; 
+        divs.style.height = `${dimensions}px`;
+        sketchContainer.appendChild(divs);
+        // app. div to new sketchC.
     }
 }
 
-/*
+// TODO: Changing instances of a word extensionz!!!!!!!!!!!!!!!!
+
 createSketchContainer();
-createDivs(16, 31.25);
+createDivs(16, 31); //these affect each other
 
 // Make the divs permanently change color when hovered.
 
 const gridDivs = document.querySelectorAll(".grid-divs");
 
-const colors = () => {
+const colorChange = () => {
     const randomNumber = Math.floor(Math.random() * (5 - 1 + 1) + 1);
     if (randomNumber === 1) {
-        const colorRed = "red";
-        return colorRed;
-    } else if (randomNumber === 2) {
         const colorBlue = "blue";
         return colorBlue;
-    } else if (randomNumber === 3) {
+    } else if (randomNumber === 2) {
         const colorYellow = "yellow";
         return colorYellow;
+    } else if (randomNumber === 3) {
+        const colorRed = "red";
+        return colorRed;
     } else if (randomNumber === 4) {
         const colorGreen = "green";
         return colorGreen;
     } else if (randomNumber === 5) {
-        const colorBrown = "brown";
-        return colorBrown;
+        const colorPurple = "Purple";
+        return colorPurple;
     }
 }
 
 for (let i = 0; i < gridDivs.length; i++) {
-    gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colors());
+    gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
+    // event listener 1. add action,
+    // Question: e or ()
 }
 
 
@@ -67,15 +71,19 @@ for (let i = 0; i < gridDivs.length; i++) {
 const grid16 = document.querySelector("#grid-16");
 
 grid16.addEventListener("click", () => {
-    while (sketchContainer.firstChild) {
+    while (sketchContainer.firstChild) { //a boolean?
         sketchContainer.removeChild(sketchContainer.firstChild);
-    }
-    mainContainer.removeChild(sketchContainer);
+    } // assume this erases
+    // without this, old one stays
+    
+    //infoContainer.removeChild(sketchContainer);
+    // the purpose of this??, maybe extra clearing
     createSketchContainer();
-    createDivs(16, 31.25);
+    createDivs(16, 31);
+    
     const gridDivs = document.querySelectorAll(".grid-divs");
     for (let i = 0; i < gridDivs.length; i++) {
-        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colors());
+        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
     }
 });
 
@@ -87,12 +95,12 @@ grid32.addEventListener("click", () => {
     while (sketchContainer.firstChild) {
         sketchContainer.removeChild(sketchContainer.firstChild);
     }
-    mainContainer.removeChild(sketchContainer);
+    //infoContainer.removeChild(sketchContainer);
     createSketchContainer();
     createDivs(32, 15.625);
     const gridDivs = document.querySelectorAll(".grid-divs");
     for (let i = 0; i < gridDivs.length; i++) {
-        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colors());
+        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
     }
 });
 
@@ -104,21 +112,21 @@ grid64.addEventListener("click", () => {
     while (sketchContainer.firstChild) {
         sketchContainer.removeChild(sketchContainer.firstChild);
     }
-    mainContainer.removeChild(sketchContainer);
+    //infoContainer.removeChild(sketchContainer);
     createSketchContainer();
     createDivs(64, 7.8125);
     const gridDivs = document.querySelectorAll(".grid-divs");
     for (let i = 0; i < gridDivs.length; i++) {
-        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colors());
+        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
     }
 });
 
 // Reset button - turn all grids white
 
-const resetButton = document.querySelector("#reset-button");
+const resetButton = document.querySelector("#reset");
 
 resetButton.addEventListener("click", () => {
     const gridDivs = document.querySelectorAll(".grid-divs");
     for (let i = 0; i < gridDivs.length; i++) {
     gridDivs[i].style.background = "white";
-}});*/
+}});

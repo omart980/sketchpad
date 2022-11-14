@@ -35,7 +35,7 @@ header h1 {
     display: flex;
     flex-wrap: wrap;
 }
-
+/* he added these after refering them?*/
 .grid-divs {
     background-color: white;
     display: flex;
