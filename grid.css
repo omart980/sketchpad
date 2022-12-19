@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box; /*?*/
+    box-sizing: border-box; 
     margin: 0;
     padding: 0;
 }
@@ -23,20 +23,19 @@ header h1 {
 }
 
 
-#info-container {
+#side_container {
     display: flex;
     justify-content: center; /*affects flex items*/
-    
 }
 
-#sketch-container {
+#grid_container {
     width: 500px;
     height: 500px;
     display: flex;
     flex-wrap: wrap;
 }
-/* he added these after refering them?*/
-.grid-divs {
+
+.grid_boxes {
     background-color: white;
     display: flex;
     border: #DCDCDC solid 1px;
@@ -45,7 +44,7 @@ header h1 {
 .buttons {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly; /*?*/
+    justify-content: space-evenly;
     margin-right: 30px;
     font-family: 'Rubik Bubbles', cursive;
 }
@@ -70,5 +69,5 @@ button:hover {
 
 #reset:hover {
     background-color: #C0C0C0;
-    cursor: pointer; /*type of cursor of hoov.*/
+    cursor: pointer;
 }

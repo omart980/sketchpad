@@ -1,127 +1,111 @@
-// Function  that creates a container and X amount of divs.
+const sideContainer = document.querySelector("#side_container");
+// query selector let's you find/return html elements, spec.
+const gridContainer = document.createElement("section");
+// creates new html element types, UI's, update page quick and APPEND
 
-const infoContainer = document.querySelector("#info-container");
-// https://www.youtube.com/watch?v=3oOKAJTD2F8
-// S: let's you find/return html elements, spec.
-const sketchContainer = document.createElement("section");
-// S: create new html elements, UI's, update page quick and APPEND
-// https://www.youtube.com/watch?v=VW8kNAous88
-
-// anonymous function/ no name func
-// https://www.youtube.com/watch?v=h33Srr5J9nY
-// passing a function to another function
-
-const createSketchContainer = () => { //Arrow func.
-    sketchContainer.setAttribute("id", "sketch-container");
-    // setting the value and a name
-    infoContainer.appendChild(sketchContainer);
+const CREATE_GRID_CONTAINER = () => { 
+    gridContainer.setAttribute("id", "grid_container");
+    // setting the value and a name 
+    sideContainer.appendChild(gridContainer);
+    // HTML section appends to new section
 }
 
-const createDivs = (num, dimensions) => {
+const CREATE_GRID_BOXES = (num, dimensions) => {
     for (let i = 0; i < num * num; i++) {
-        const divs = document.createElement("div");
-        divs.classList.add("grid-divs"); //assume you can create this
-        divs.style.width = `${dimensions}px`; 
-        divs.style.height = `${dimensions}px`;
-        sketchContainer.appendChild(divs);
-        // app. div to new sketchC.
+        const boxes = document.createElement("div");
+        boxes.classList.add("grid_boxes"); //assume you can create this; becomes classes
+        // creates boxes with given w x h
+        boxes.style.width = `${dimensions}px`; 
+        boxes.style.height = `${dimensions}px`;
+        gridContainer.appendChild(boxes);
     }
 }
 
+// basically HTML
+CREATE_GRID_CONTAINER();
+CREATE_GRID_BOXES(16, 31); 
 
-createSketchContainer();
-createDivs(16, 31); //these affect each other
-
-// Divs will change color when hovered
-const gridDivs = document.querySelectorAll(".grid-divs");
-
-const colorChange = () => {
+const GRID_COLOR_CHANGE = () => {
     const randomNumber = Math.floor(Math.random() * (5 - 1 + 1) + 1);
     if (randomNumber === 1) {
-        const colorBlue = "blue";
-        return colorBlue;
+        const lighter_blue = "#9999ff";
+        return lighter_blue;
     } else if (randomNumber === 2) {
-        const colorYellow = "yellow";
-        return colorYellow;
+        const light_blue = "#6666ff";
+        return light_blue;
     } else if (randomNumber === 3) {
-        const colorRed = "red";
-        return colorRed;
+        const blue = "#1a1aff";
+        return blue;
     } else if (randomNumber === 4) {
-        const colorGreen = "green";
-        return colorGreen;
+        const darker_blue = "#0000cc";
+        return darker_blue;
     } else if (randomNumber === 5) {
-        const colorPurple = "Purple";
-        return colorPurple;
+        const darkest_blue = "#000080";
+        return darkest_blue;
     }
 }
 
-for (let i = 0; i < gridDivs.length; i++) {
-    gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
-    // event listener 1. add action,
-    // Question: e or ()
+// For initialization only 
+const allGridBoxes = document.querySelectorAll(".grid_boxes");
+
+for (let i = 0; i < allGridBoxes.length; i++) {
+    allGridBoxes[i].addEventListener("mouseover", () => 
+        allGridBoxes[i].style.background = GRID_COLOR_CHANGE());
 }
-
-
-// Size Seletion: 16 x 16 size
 
 const grid16 = document.querySelector("#grid_16");
 
 grid16.addEventListener("click", () => {
-    while (sketchContainer.firstChild) { //a boolean?
-        sketchContainer.removeChild(sketchContainer.firstChild);
-    } // assume this erases
-    // without this, old one stays
+    // Clears grid upon selection
+    while (gridContainer.firstChild) { 
+        gridContainer.removeChild(gridContainer.firstChild);
+    } 
+    CREATE_GRID_CONTAINER();
+    CREATE_GRID_BOXES(16, 31);
     
-    //infoContainer.removeChild(sketchContainer);
-    // the purpose of this??, maybe extra clearing
-    createSketchContainer();
-    createDivs(16, 31);
-    
-    const gridDivs = document.querySelectorAll(".grid-divs");
-    for (let i = 0; i < gridDivs.length; i++) {
-        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
+    const allGridBoxes = document.querySelectorAll(".grid_boxes");
+    for (let i = 0; i < allGridBoxes.length; i++) {
+        allGridBoxes[i].addEventListener("mouseover", () => 
+            allGridBoxes[i].style.background = GRID_COLOR_CHANGE());
     }
 });
-
-// Size Seletion: 32 x 32 size
 
 const grid32 = document.querySelector("#grid_32");
 
 grid32.addEventListener("click", () => {
-    while (sketchContainer.firstChild) {
-        sketchContainer.removeChild(sketchContainer.firstChild);
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
     }
-    //infoContainer.removeChild(sketchContainer);
-    createSketchContainer();
-    createDivs(32, 15.625);
-    const gridDivs = document.querySelectorAll(".grid-divs");
-    for (let i = 0; i < gridDivs.length; i++) {
-        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
+    CREATE_GRID_CONTAINER();
+    CREATE_GRID_BOXES(32, 15.625);
+
+    const allGridBoxes = document.querySelectorAll(".grid_boxes");
+    for (let i = 0; i < allGridBoxes.length; i++) {
+        allGridBoxes[i].addEventListener("mouseover", () => 
+            allGridBoxes[i].style.background = GRID_COLOR_CHANGE());
     }
 });
-
-// Size Seletion: 64 x 64 size
 
 const grid64 = document.querySelector("#grid_64");
 
 grid64.addEventListener("click", () => {
-    while (sketchContainer.firstChild) {
-        sketchContainer.removeChild(sketchContainer.firstChild);
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
     }
-    //infoContainer.removeChild(sketchContainer);
-    createSketchContainer();
-    createDivs(64, 7.8125);
-    const gridDivs = document.querySelectorAll(".grid-divs");
-    for (let i = 0; i < gridDivs.length; i++) {
-        gridDivs[i].addEventListener("mouseover", () => gridDivs[i].style.background = colorChange());
+    CREATE_GRID_CONTAINER();
+    CREATE_GRID_BOXES(64, 7.8125);
+
+    const allGridBoxes = document.querySelectorAll(".grid_boxes");
+    for (let i = 0; i < allGridBoxes.length; i++) {
+        allGridBoxes[i].addEventListener("mouseover", () => 
+            allGridBoxes[i].style.background = GRID_COLOR_CHANGE());
     }
 });
 
-// Reset(white) function 
 const resetButton = document.querySelector("#reset");
 
 resetButton.addEventListener("click", () => {
-    const gridDivs = document.querySelectorAll(".grid-divs");
-    for (let i = 0; i < gridDivs.length; i++) {
-    gridDivs[i].style.background = "white";
+    const allGridBoxes = document.querySelectorAll(".grid_boxes");
+    for (let i = 0; i < allGridBoxes.length; i++) {
+        allGridBoxes[i].style.background = "white";
 }});
